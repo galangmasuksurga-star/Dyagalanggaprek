@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dyageprek — Rumah Makan Ayam Geprek</title>
+    <meta
+      name="description"
+      content="Dyageprek — rumah makan sederhana dengan menu Ayam Geprek dan Es Teh."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#beranda" aria-label="Dyageprek">
+          <span class="brand-mark" aria-hidden="true">🌶️</span>
+          <span class="brand-text">dyageprek</span>
+        </a>
+        <nav class="nav" aria-label="Navigasi utama">
+          <a href="#menu">Menu</a>
+          <a href="#order">Pesan Online</a>
+          <a href="#tentang">Tentang</a>
+          <a href="#kontak">Kontak</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="beranda">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1>Ayam geprek pedas, harga bersahabat.</h1>
+            <p>
+              Selamat datang di <strong>Dyageprek</strong>. Silakan lihat menu kami dan
+              pesan online atau datang langsung ke warung.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#menu">Lihat Menu</a>
+              <a class="btn btn-ghost" href="#order">Pesan Sekarang</a>
+              <button class="btn btn-ghost" id="copy-menu">Salin daftar menu</button>
+            </div>
+            <p class="helper" id="copy-status" aria-live="polite"></p>
+          </div>
+          <div class="hero-card" role="img" aria-label="Ilustrasi ayam geprek">
+            <div class="hero-card-top">
+              <span class="badge">Best seller</span>
+              <span class="price">Rp 12.000</span>
+            </div>
+            <div class="hero-card-title">Ayam Geprek</div>
+            <div class="hero-card-desc">Sambal mantap, bikin nagih.</div>
+            <div class="hero-card-bottom">
+              <span class="chip">Pedas</span>
+              <span class="chip">Gurih</span>
+              <span class="chip">Fresh</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="menu">
+        <div class="container">
+          <div class="section-title">
+            <h2>Menu</h2>
+            <p>Pilih menu favoritmu di bawah ini.</p>
+          </div>
+
+          <div class="menu-grid" role="list">
+            <article class="menu-card" role="listitem">
+              <div class="menu-card-head">
+                <h3>Ayam Geprek</h3>
+                <span class="menu-price" aria-label="Harga ayam geprek">Rp 12.000</span>
+              </div>
+              <p class="menu-desc">Ayam crispy digeprek dengan sambal pedas.</p>
+              <div class="menu-meta">
+                <span class="tag">Makan</span>
+                <span class="tag">Pedas</span>
+              </div>
+            </article>
+
+            <article class="menu-card" role="listitem">
+              <div class="menu-card-head">
+                <h3>Es Teh</h3>
+                <span class="menu-price" aria-label="Harga es teh">Rp 3.000</span>
+              </div>
+              <p class="menu-desc">Minuman segar untuk temani ayam geprek.</p>
+              <div class="menu-meta">
+                <span class="tag">Minum</span>
+                <span class="tag">Dingin</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="note">
+            <strong>Catatan:</strong> Harga dapat berubah sewaktu-waktu.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="order">
+        <div class="container">
+          <div class="section-title">
+            <h2>Pemesanan Online</h2>
+            <p>Tambahkan menu ke keranjang, isi alamat, lalu checkout.</p>
+          </div>
+
+          <div class="order-grid">
+            <div class="order-panel">
+              <h3 class="panel-title">Pilih Menu</h3>
+              <div class="order-items">
+                <div class="order-item">
+                  <div class="order-item-main">
+                    <div class="order-item-name">Ayam Geprek</div>
+                    <div class="order-item-desc">Ayam crispy + sambal.</div>
+                  </div>
+                  <div class="order-item-actions">
+                    <div class="order-item-price">Rp 12.000</div>
+                    <button class="btn btn-primary btn-sm" data-add="ayam_geprek">
+                      Tambah
+                    </button>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-item-main">
+                    <div class="order-item-name">Es Teh</div>
+                    <div class="order-item-desc">Segar dan dingin.</div>
+                  </div>
+                  <div class="order-item-actions">
+                    <div class="order-item-price">Rp 3.000</div>
+                    <button class="btn btn-primary btn-sm" data-add="es_teh">
+                      Tambah
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="order-panel">
+              <h3 class="panel-title">Keranjang & Checkout</h3>
+
+              <div class="cart" aria-label="Keranjang belanja">
+                <div id="cart-empty" class="cart-empty">
+                  Keranjang masih kosong. Klik tombol <strong>Tambah</strong> pada menu.
+                </div>
+
+                <div id="cart-lines" class="cart-lines" hidden></div>
+
+                <div class="cart-summary">
+                  <div class="cart-row">
+                    <span>Subtotal</span>
+                    <strong id="subtotal">Rp 0</strong>
+                  </div>
+                  <div class="cart-row">
+                    <span>Ongkir (demo)</span>
+                    <strong id="shipping">Rp 0</strong>
+                  </div>
+                  <div class="cart-row total">
+                    <span>Total</span>
+                    <strong id="total">Rp 0</strong>
+                  </div>
+                </div>
+              </div>
+
+              <form class="checkout-form" onsubmit="return false" aria-label="Checkout">
+                <div class="two-col">
+                  <label>
+                    Nama
+                    <input id="cust-name" type="text" placeholder="Nama penerima" />
+                  </label>
+                  <label>
+                    No. HP
+                    <input id="cust-phone" type="tel" placeholder="08xxxxxxxxxx" />
+                  </label>
+                </div>
+
+                <label>
+                  Alamat lengkap (untuk diantar)
+                  <textarea
+                    id="cust-address"
+                    rows="3"
+                    placeholder="Nama jalan, nomor rumah, RT/RW, kelurahan, kecamatan, patokan..."
+                  ></textarea>
+                </label>
+
+                <label>
+                  Metode pembayaran (demo)
+                  <select id="pay-method">
+                    <option value="cod">COD (Bayar di tempat)</option>
+                    <option value="transfer">Transfer Bank</option>
+                    <option value="ewallet">E-Wallet</option>
+                  </select>
+                </label>
+
+                <div class="pay-box" id="pay-box" aria-live="polite"></div>
+
+                <label>
+                  Catatan (opsional)
+                  <input id="cust-note" type="text" placeholder="Contoh: pedas sedang" />
+                </label>
+
+                <div class="checkout-actions">
+                  <button class="btn btn-ghost" type="button" id="btn-clear">
+                    Kosongkan
+                  </button>
+                  <button class="btn btn-primary" type="button" id="btn-checkout">
+                    Checkout
+                  </button>
+                </div>
+
+                <p class="helper" id="checkout-status" aria-live="polite"></p>
+              </form>
+
+              <div id="order-result" class="order-result" hidden>
+                <h4>Pesanan berhasil dibuat (demo)</h4>
+                <pre id="order-text" class="order-text"></pre>
+                <button class="btn btn-ghost" type="button" id="btn-copy-order">
+                  Salin ringkasan pesanan
+                </button>
+                <p class="helper" id="copy-order-status" aria-live="polite"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="tentang">
+        <div class="container about">
+          <div>
+            <h2>Tentang Dyageprek</h2>
+            <p>
+              Dyageprek adalah warung makan sederhana yang fokus pada rasa pedas mantap
+              dan pelayanan cepat.
+            </p>
+            <ul class="about-list">
+              <li>Menu sederhana, jelas, dan enak</li>
+              <li>Harga ramah kantong</li>
+              <li>Cocok untuk makan siang atau makan malam</li>
+            </ul>
+          </div>
+          <div class="about-box">
+            <h3>Jam buka</h3>
+            <p>Setiap hari (sesuaikan nanti)</p>
+            <h3>Alamat</h3>
+            <p>Isi alamat warung di sini</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kontak">
+        <div class="container contact">
+          <div class="section-title">
+            <h2>Kontak</h2>
+            <p>Isi kontak di bawah ini (bisa kamu ubah kapan saja).</p>
+          </div>
+
+          <form class="contact-form" onsubmit="return false" aria-label="Form kontak">
+            <label>
+              Nama
+              <input type="text" placeholder="Nama kamu" />
+            </label>
+            <label>
+              Pesan
+              <textarea rows="4" placeholder="Tulis pesan..."></textarea>
+            </label>
+            <button class="btn btn-primary" type="button" id="btn-demo">
+              Kirim (demo)
+            </button>
+            <p class="helper" id="demo-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Dyageprek</p>
+        <a href="#beranda">Kembali ke atas</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
